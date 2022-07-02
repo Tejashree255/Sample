@@ -9,13 +9,14 @@ pipeline {
     stage('Test') {
       steps {
         sh 'chmod a+x mvnw'
-        sh './mvnw clean test'
+        sh 'mvn -N io.takari:maven:wrapper'
       }
     }
 
     stage('Build') {
       steps {
         sh './mvnw package'
+        
       }
     }
 
